@@ -156,6 +156,13 @@ ReactionCore.Collections.Taxes = new Mongo.Collection("Taxes");
 ReactionCore.Collections.Taxes.attachSchema(ReactionCore.Schemas.Taxes);
 
 /**
+* ReactionCore Collections TaxCodes
+*/
+ReactionCore.Collections.TaxCodes = new Mongo.Collection("TaxCodes");
+
+ReactionCore.Collections.TaxCodes.attachSchema(ReactionCore.Schemas.TaxCodes);
+
+/**
 * ReactionCore Collections Discounts
 */
 ReactionCore.Collections.Discounts = new Mongo.Collection("Discounts");

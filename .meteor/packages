@@ -48,6 +48,7 @@ reactioncommerce:reaction-inventory
 reactioncommerce:reaction-shipping
 reactioncommerce:reaction-social
 reactioncommerce:reaction-checkout
+reactioncommerce:reaction-taxes
 reactioncommerce:reaction-ui
 reactioncommerce:reaction-ui-navbar
 reactioncommerce:reaction-ui-tagnav

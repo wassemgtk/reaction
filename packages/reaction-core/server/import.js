@@ -315,6 +315,16 @@ ReactionImport.tag = function (key, tag) {
 };
 
 /**
+ * @summary Store a taxCode in the import buffer.
+ * @param {Object} key A key to look up the taxCode
+ * @param {Object} taxCode The taxCode data to be updated
+ * @returns {Object} this taxCode
+ */
+ReactionImport.taxCode = function (key, taxCode) {
+  return this.object(ReactionCore.Collections.TaxCodes, key, taxCode);
+};
+
+/**
  * @summary Push a new upsert document to the import buffer.
  * @param {Mongo.Collection} collection The target collection
  * @param {Object} key A key to look up the object
@@ -387,3 +397,4 @@ ReactionImport.indication("currencies", ReactionCore.Collections.Shops, 0.5);
 ReactionImport.indication("timezone", ReactionCore.Collections.Shops, 0.5);
 ReactionImport.indication("isTopLevel", ReactionCore.Collections.Tags, 0.4);
 ReactionImport.indication("slug", ReactionCore.Collections.Tags, 0.5);
+ReactionImport.indication("ssuta", ReactionCore.Collections.TaxCodes, 0.5);

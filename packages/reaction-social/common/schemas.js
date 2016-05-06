@@ -6,7 +6,7 @@ ReactionCore.Schemas.SocialProvider = new SimpleSchema({
   profilePage: {
     type: String,
     regEx: SimpleSchema.RegEx.Url,
-    label: 'Profile Page',
+    label: "Profile Page",
     optional: true
   },
   enabled: {
@@ -34,13 +34,13 @@ ReactionCore.Schemas.SocialPackageConfig = new SimpleSchema([
     "settings.public.apps.facebook.appId": {
       type: String,
       regEx: /\d+/,
-      label: 'App Id',
+      label: "App Id",
       optional: true
     },
     "settings.public.apps.facebook.appSecret": {
       type: String,
       regEx: /[\da-z]+/,
-      label: 'App Secret',
+      label: "App Secret",
       optional: true
     },
     "settings.public.apps.twitter": {
@@ -57,7 +57,7 @@ ReactionCore.Schemas.SocialPackageConfig = new SimpleSchema([
     },
     "settings.public.apps.googleplus": {
       type: ReactionCore.Schemas.SocialProvider,
-      label: 'Google+',
+      label: "Google+",
       optional: true
     }
   }

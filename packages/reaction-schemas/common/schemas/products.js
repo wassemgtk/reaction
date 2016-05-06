@@ -212,6 +212,11 @@ ReactionCore.Schemas.ProductVariant = new SimpleSchema({
     type: Boolean,
     optional: true
   },
+  taxCode: {
+    label: "Tax Code",
+    type: String,
+    optional: true
+  },
   // Label for customers
   title: {
     label: "Label",

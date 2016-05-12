@@ -6,28 +6,29 @@ Template.addressBookForm.helpers({
   countryOptions: function () {
     return ReactionCore.Collections.Countries.find().fetch();
   },
-  statesForCountry: function() {
-    var locale, options, ref, selectedCountry, shop, state;
-    shop = ReactionCore.Collections.Shops.findOne();
-    selectedCountry = Session.get('addressBookCountry') || AutoForm.getFieldValue('country');
+  statesForCountry: function () {
+    const shop = ReactionCore.Collections.Shops.findOne();
+    const selectedCountry = Session.get("addressBookCountry") || AutoForm.getFieldValue("country");
     if (!selectedCountry) {
       return false;
     }
-    if ((shop != null ? shop.locales.countries[selectedCountry].states : void 0) == null) {
+    if ((shop !== null ? shop.locales.countries[selectedCountry].states : void 0) === null) {
       return false;
     }
     options = [];
-    ref = shop != null ? shop.locales.countries[selectedCountry].states : void 0;
-    for (state in ref) {
-      locale = ref[state];
-      options.push({
-        'label': locale.name,
-        'value': state
-      });
+    if (shop && typeof shop.locales.countries[selectedCountry].states === "object") {
+      for (const state in shop.locales.countries[selectedCountry].states) {
+        if ({}.hasOwnProperty.call(shop.locales.countries[selectedCountry].states, state)) {
+          const locale = shop.locales.countries[selectedCountry].states[state];
+          options.push({
+            label: locale.name,
+            value: state
+          });
+        }
+      }
     }
     return options;
   },
-
   /*
    *  Defaults billing/shipping when 1st new address.
    */
@@ -54,7 +55,7 @@ Template.addressBookForm.helpers({
 });
 
 Template.addressBookForm.events({
-  'change [name="country"]': function() {
-    return Session.set('addressBookCountry', AutoForm.getFieldValue('country'));
+  'change [name="country"]': function () {
+    return Session.set("addressBookCountry", AutoForm.getFieldValue("country"));
   }
 });

@@ -16,8 +16,38 @@ Template.customTaxRates.helpers({
   countryOptions: function () {
     return ReactionCore.Collections.Countries.find().fetch();
   },
+  country: function () {
+    const shop = ReactionCore.Collections.Shops.findOne();
+    if (shop && typeof shop.addressBook === "Array") {
+      const country = shop.addressBook[0].country;
+      return country;
+    }
+  },
+  statesForCountry: function () {
+    const shop = ReactionCore.Collections.Shops.findOne();
+    const selectedCountry = AutoForm.getFieldValue("country");
+    if (!selectedCountry) {
+      return false;
+    }
+    if ((shop !== null ? shop.locales.countries[selectedCountry].states : void 0) === null) {
+      return false;
+    }
+    options = [];
+    if (shop && typeof shop.locales.countries[selectedCountry].states === "object") {
+      for (const state in shop.locales.countries[selectedCountry].states) {
+        if ({}.hasOwnProperty.call(shop.locales.countries[selectedCountry].states, state)) {
+          const locale = shop.locales.countries[selectedCountry].states[state];
+          options.push({
+            label: locale.name,
+            value: state
+          });
+        }
+      }
+    }
+    return options;
+  },
   filteredFields() {
-    return ["taxCode", "country", "region", "postal", "rate"];
+    return ["taxCode", "rate", "country", "region", "postal"];
   },
   Taxes() {
     return ReactionCore.Collections.Taxes;
@@ -25,10 +55,6 @@ Template.customTaxRates.helpers({
   packageData() {
     return ReactionCore.Collections.Taxes.find();
   },
-  //
-  // prepare and return taxCodes
-  // for default shop value
-  //
   taxCodes() {
     const instance = Template.instance();
     if (instance.subscriptionsReady()) {
@@ -54,7 +80,6 @@ Template.customTaxRates.helpers({
     return;
   }
 });
-
 
 AutoForm.hooks({
   "customTaxRates-update-form": {

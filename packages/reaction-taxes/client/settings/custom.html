@@ -25,7 +25,17 @@
     {{> afQuickField name='taxIncluded'}}
     {{> afQuickField name='discountsIncluded'}}
     {{> afQuickField name='country' options=countryOptions value=country}}
-    {{> afQuickField name='region'}}
+    <div>
+      <label class="control-label">{{afFieldLabelText name='region'}}</label>
+      {{#if statesForCountry}}
+        {{>afFieldInput name="region" value=region options=statesForCountry}}
+      {{else}}
+        {{>afFieldInput name="region" value=region }}
+      {{/if}}
+      {{#if afFieldIsInvalid name="region"}}
+      <span class="help-block">{{afFieldMessage name="region"}}</span>
+      {{/if}}
+    </div>
     {{> afQuickField name='postal'}}
     {{> afQuickField name='rate'}}
     {{> shopSettingsSubmitButton}}

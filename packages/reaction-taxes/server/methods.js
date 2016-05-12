@@ -6,9 +6,15 @@ Meteor.methods({
   "taxes/addRate": function (modifier, docId) {
     check(modifier, Object);
     check(docId, Match.OneOf(Object, null, undefined));
+    // check permissions to add
+    if (!ReactionCore.hasPermission("taxes")) {
+      throw new Meteor.Error(403, "Access Denied");
+    }
+    // if no doc, insert
     if (!docId) {
       return ReactionCore.Collections.Taxes.insert(modifier);
     }
+    // else update and return
     return ReactionCore.Collections.Taxes.update(docId, modifier);
   }
 });

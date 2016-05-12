@@ -343,6 +343,7 @@ ReactionImport.object = function (collection, key, object) {
   // hooks for additional import manipulation.
   const importObject = ReactionCore.Hooks.Events.run(`onImport${this._name(collection)}`, object);
   // Clean and validate the object.
+
   collection.simpleSchema(importObject).clean(importObject);
   this.context(collection, selector).validate(importObject, {});
   // Upsert the object.

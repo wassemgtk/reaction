@@ -1,39 +1,4 @@
 /**
-* TaxCodes Schema
-*/
-
-ReactionCore.Schemas.TaxCodes = new SimpleSchema({
-  id: {
-    type: String,
-    label: "Tax Id"
-  },
-  shopId: {
-    type: String,
-    optional: true
-  },
-  ssuta: {
-    type: Boolean,
-    label: "Streamlined Sales Tax"
-  },
-  title: {
-    type: String,
-    optional: true
-  },
-  label: {
-    type: String,
-    optional: true
-  },
-  parent: {
-    type: String,
-    optional: true
-  },
-  children: {
-    type: [ReactionCore.Schemas.TaxCodes],
-    optional: true
-  }
-});
-
-/**
 * TaxRates Schema
 */
 
@@ -45,8 +10,13 @@ ReactionCore.Schemas.TaxRates = new SimpleSchema({
     type: String,
     optional: true
   },
+  postal: {
+    type: String,
+    optional: true
+  },
   rate: {
-    type: Number
+    type: Number,
+    decimal: true
   }
 });
 
@@ -56,6 +26,10 @@ ReactionCore.Schemas.Taxes = new SimpleSchema({
     autoValue: ReactionCore.shopIdAutoValue,
     index: 1,
     label: "Taxes shopId"
+  },
+  taxCode: {
+    type: String,
+    label: "Tax Identifier"
   },
   cartMethod: {
     label: "Calculation Method",
@@ -82,8 +56,28 @@ ReactionCore.Schemas.Taxes = new SimpleSchema({
     type: Boolean,
     defaultValue: false
   },
-  rates: {
-    label: "Tax Rate",
-    type: [ReactionCore.Schemas.TaxRates]
+  region: {
+    label: "State/Province/Region",
+    type: String,
+    optional: true
+  },
+  postal: {
+    label: "ZIP/Postal Code",
+    type: String,
+    optional: true
+  },
+  country: {
+    type: String,
+    label: "Country",
+    optional: true
+  },
+  isCommercial: {
+    label: "Commercial address.",
+    type: Boolean,
+    optional: true
+  },
+  rate: {
+    type: Number,
+    decimal: true
   }
 });

@@ -159,8 +159,12 @@
         "shopLocalizationSettingsFailed": "Shop localization settings update failed. ",
         "shopOptionsSettingsSaved": "Shop options saved.",
         "shopOptionsSettingsFailed": "Shop options update failed. ",
-        "shopPaymentMethodsSaved": "Shop Payment Methods settings saved.",
-        "shopPaymentMethodsFailed": "Shop Payment Methods settings update failed. "
+        "shopPaymentMethodsSaved": "Shop Payment Method settings saved.",
+        "shopPaymentMethodsFailed": "Shop Payment Method settings update failed. ",
+        "shopTaxMethodsSaved": "Shop Tax Method settings saved.",
+        "shopTaxMethodsFailed": "Shop Tax Method settings update failed. ",
+        "shopCustomTaxRatesSaved": "Shop Custom Tax Rate saved.",
+        "shopCustomTaxRatesFailed": "Shop Custom Tax Rate update failed. "
       },
       "header": {
         "tagsAdd": "Add tag",

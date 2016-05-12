@@ -1,7 +1,7 @@
 Package.describe({
   summary: "Reaction Schemas - core reaction commerce collection schemas",
   name: "reactioncommerce:reaction-schemas",
-  version: "2.0.5",
+  version: "2.0.6",
   documentation: "README.md"
 });
 
@@ -29,6 +29,7 @@ Package.onUse(function (api) {
   api.addFiles("common/schemas/payments.js");
   api.addFiles("common/schemas/shipping.js");
   api.addFiles("common/schemas/taxes.js");
+  api.addFiles("common/schemas/taxcodes.js");
   api.addFiles("common/schemas/discounts.js");
   api.addFiles("common/schemas/products.js");
   api.addFiles("common/schemas/tags.js");

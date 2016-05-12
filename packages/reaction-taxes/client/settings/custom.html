@@ -1,0 +1,33 @@
+<template name="customTaxRates">
+  <div>
+    {{> React component=griddleTable
+      publication="Taxes"
+      collection=Taxes
+      matchingResultsCount="taxes-count"
+      filteredFields=filteredFields
+      columns=filteredFields
+      resultsPerPage=5
+      onRowClick=editRow
+    }}
+  </div>
+
+  {{#autoForm
+    collection="ReactionCore.Collections.Taxes"
+    schema="ReactionCore.Schemas.Taxes"
+    type="method"
+    meteormethod="taxes/addRate"
+    id="customTaxRates-update-form"
+  }}
+    {{> afQuickField name='taxCode' options=taxCodes}}
+    {{> afQuickField name='cartMethod' options="allowed"}}
+    {{> afQuickField name='taxLocale' options="allowed"}}
+    {{> afQuickField name='taxShipping'}}
+    {{> afQuickField name='taxIncluded'}}
+    {{> afQuickField name='discountsIncluded'}}
+    {{> afQuickField name='country' options=countryOptions value=country}}
+    {{> afQuickField name='region'}}
+    {{> afQuickField name='postal'}}
+    {{> afQuickField name='rate'}}
+    {{> shopSettingsSubmitButton}}
+  {{/autoForm}}
+</template>

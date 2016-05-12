@@ -12,8 +12,11 @@ Package.onUse(function (api) {
   api.use("meteor-base");
   api.use("ecmascript");
   api.use("blaze-html-templates");
+  api.use("react-template-helper@0.2.9");
+  api.use("utilities:meteor-griddle@1.2.0");
 
   // Reaction packages
+  api.use("reactioncommerce:reaction-collections@2.2.1");
   api.use("reactioncommerce:core@0.13.0");
   api.use("reactioncommerce:reaction-checkout@1.0.0");
 
@@ -31,7 +34,19 @@ Package.onUse(function (api) {
     "client/checkout/taxes.html",
     "client/checkout/taxes.js",
     // admin screens
-    "client/settings/taxes.html",
-    "client/settings/taxes.js"
+    "client/settings/settings.html",
+    "client/settings/settings.js",
+    // avalara
+    "client/settings/avalara.html",
+    "client/settings/avalara.js",
+    // custom rates
+    "client/settings/custom.html",
+    "client/settings/custom.js",
+    // taxcloud
+    "client/settings/taxcloud.html",
+    "client/settings/taxcloud.js",
+    // taxjar
+    "client/settings/taxjar.html",
+    "client/settings/taxjar.js"
   ], ["client"]);
 });

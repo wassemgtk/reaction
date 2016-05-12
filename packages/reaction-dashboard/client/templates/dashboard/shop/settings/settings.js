@@ -76,6 +76,7 @@ Template.shopSettings.helpers({
     return {
       type: "radio",
       options: media,
+      name: "navbarBrand",
       key: "_id",
       optionTemplate: "shopBrandImageOption",
       selected: selectedMediaId,

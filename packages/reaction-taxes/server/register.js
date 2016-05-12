@@ -23,37 +23,39 @@ ReactionCore.registerPackage({
       label: "Taxes",
       description: "Provide tax rates",
       icon: "fa fa-university",
-      priority: 1,
+      priority: 3,
       container: "core",
       workflow: "coreDashboardWorkflow"
     },
     {
       label: "Tax Settings",
-      route: "/dashboard/taxes/settings",
       name: "taxes/settings",
       provides: "settings",
       template: "taxSettings"
     },
     {
-      label: "TaxCloud Settings",
-      route: "/dashboard/taxes/taxcloud",
+      label: "TaxCloud",
       name: "taxes/settings/taxcloud",
       provides: "taxSettings",
       template: "taxCloudSettings"
     },
     {
-      label: "Avalara Settings",
-      route: "/dashboard/taxes/avalara",
+      label: "Avalara",
       name: "taxes/settings/avalara",
       provides: "taxSettings",
       template: "avalaraSettings"
     },
     {
-      label: "Rate Settings",
-      route: "/dashboard/taxes/rates",
+      label: "TaxJar",
+      name: "taxes/settings/taxjar",
+      provides: "taxSettings",
+      template: "taxJarSettings"
+    },
+    {
+      label: "Custom Rates",
       name: "taxes/settings/rates",
       provides: "taxSettings",
-      template: "taxRates"
+      template: "customTaxRates"
     },
     {
       template: "flatRateCheckoutTaxes",

@@ -27,8 +27,10 @@
   "dependencies": {
     "bunyan": "^1.8.0",
     "bunyan-format": "0.2.1",
+    "griddle-react": "^0.5.1",
     "meteor-node-stubs": "^0.2.1",
-    "react": "15.0.1",
-    "react-dom": "15.0.1"
+    "react": "15.0.2",
+    "react-dom": "15.0.2",
+    "react-addons-pure-render-mixin": "15.0.2"
   }
 }

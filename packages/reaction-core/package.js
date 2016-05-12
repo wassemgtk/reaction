@@ -114,6 +114,7 @@ Package.onUse(function (api) {
   // methods
   api.addFiles("server/methods/cart.js", "server");
   api.addFiles("server/methods/orders.js", "server");
+  api.addFiles("server/methods/registry.js", "server");
   api.addFiles("server/methods/shipping.js", "server");
   api.addFiles("server/methods/shop.js", "server");
 

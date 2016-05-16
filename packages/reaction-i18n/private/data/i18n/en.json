@@ -164,7 +164,8 @@
         "shopTaxMethodsSaved": "Shop Tax Method settings saved.",
         "shopTaxMethodsFailed": "Shop Tax Method settings update failed. ",
         "shopCustomTaxRatesSaved": "Shop Custom Tax Rate saved.",
-        "shopCustomTaxRatesFailed": "Shop Custom Tax Rate update failed. "
+        "shopCustomTaxRatesFailed": "Shop Custom Tax Rate update failed. ",
+        "noCustomTaxRatesFound": "No custom tax rates found."
       },
       "header": {
         "tagsAdd": "Add tag",

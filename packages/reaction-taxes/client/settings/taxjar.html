@@ -1,7 +1,7 @@
 <template name="taxJarSettings">
   {{#autoForm collection="ReactionCore.Collections.Packages" schema="ReactionCore.Schemas.TaxPackageConfig" doc=packageData type="update" id="taxjar-update-form"}}
       <div class="panel-body">
-        {{> afQuickField name='settings.taxjar.apiLoginId'}}
+        {{> afQuickField name='settings.taxjar.apiLoginId' class='form-control'}}
       </div>
       {{> shopSettingsSubmitButton}}
   {{/autoForm}}

@@ -76,8 +76,12 @@ Template.customTaxRates.helpers({
   griddleTable() {
     return MeteorGriddle;
   },
-  editRow() {
+  editRow(options) {
+    // console.log("here in edit row", options);
     return;
+  },
+  noDataMessage() {
+    return i18next.t("shopSettings.noCustomTaxRatesFound");
   }
 });
 

@@ -6,38 +6,40 @@
       matchingResultsCount="taxes-count"
       filteredFields=filteredFields
       columns=filteredFields
-      resultsPerPage=5
+      noDataMessage=noDataMessage
       onRowClick=editRow
+      useExternal=true
     }}
   </div>
-
-  {{#autoForm
-    collection="ReactionCore.Collections.Taxes"
-    schema="ReactionCore.Schemas.Taxes"
-    type="method"
-    meteormethod="taxes/addRate"
-    id="customTaxRates-update-form"
-  }}
-    {{> afQuickField name='taxCode' options=taxCodes}}
-    {{> afQuickField name='cartMethod' options="allowed"}}
-    {{> afQuickField name='taxLocale' options="allowed"}}
-    {{> afQuickField name='taxShipping'}}
-    {{> afQuickField name='taxIncluded'}}
-    {{> afQuickField name='discountsIncluded'}}
-    {{> afQuickField name='country' options=countryOptions value=country}}
-    <div>
-      <label class="control-label">{{afFieldLabelText name='region'}}</label>
-      {{#if statesForCountry}}
-        {{>afFieldInput name="region" value=region options=statesForCountry}}
-      {{else}}
-        {{>afFieldInput name="region" value=region }}
-      {{/if}}
-      {{#if afFieldIsInvalid name="region"}}
-      <span class="help-block">{{afFieldMessage name="region"}}</span>
-      {{/if}}
-    </div>
-    {{> afQuickField name='postal'}}
-    {{> afQuickField name='rate'}}
-    {{> shopSettingsSubmitButton}}
-  {{/autoForm}}
+  <div>
+    {{#autoForm
+      collection="ReactionCore.Collections.Taxes"
+      schema="ReactionCore.Schemas.Taxes"
+      type="method"
+      meteormethod="taxes/addRate"
+      id="customTaxRates-update-form"
+    }}
+      {{> afQuickField name='taxCode' options=taxCodes class='form-control'}}
+      {{> afQuickField name='cartMethod' options="allowed" class='form-control'}}
+      {{> afQuickField name='taxLocale' options="allowed" class='form-control'}}
+      {{> afQuickField name='taxShipping'}}
+      {{> afQuickField name='taxIncluded'}}
+      {{> afQuickField name='discountsIncluded'}}
+      {{> afQuickField name='country' options=countryOptions value=country class='form-control'}}
+      <div>
+        <label class="control-label">{{afFieldLabelText name='region'}}</label>
+        {{#if statesForCountry}}
+          {{>afFieldInput name="region" value=region options=statesForCountry class='form-control'}}
+        {{else}}
+          {{>afFieldInput name="region" value=region class='form-control'}}
+        {{/if}}
+        {{#if afFieldIsInvalid name="region"}}
+        <span class="help-block">{{afFieldMessage name="region"}}</span>
+        {{/if}}
+      </div>
+      {{> afQuickField name='postal' class='form-control'}}
+      {{> afQuickField name='rate' class='form-control'}}
+      {{> shopSettingsSubmitButton}}
+    {{/autoForm}}
+  </div>
 </template>

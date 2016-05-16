@@ -1,7 +1,7 @@
 <template name="taxCloudSettings">
   {{#autoForm collection="ReactionCore.Collections.Packages" schema="ReactionCore.Schemas.TaxPackageConfig" doc=packageData type="update" id="taxcloud-update-form"}}
       <div class="panel-body">
-        {{> afQuickField name='settings.taxcloud.apiLoginId'}}
+        {{> afQuickField name='settings.taxcloud.apiLoginId' class='form-control'}}
       </div>
       {{> shopSettingsSubmitButton}}
   {{/autoForm}}

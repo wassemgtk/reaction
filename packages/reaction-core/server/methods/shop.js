@@ -119,9 +119,9 @@ Meteor.methods({
         result.currency = shop.currencies[currency];
         // only fetch rates if locale and shop currency are not equal
         // if shop.curency = locale currency the rate is 1
+
         if (shop.currency !== currency) {
           exchangeRate = Meteor.call("shop/getCurrencyRates", currency);
-
           if (typeof exchangeRate === "number") {
             result.currency.exchangeRate = exchangeRate;
           } else {
@@ -151,7 +151,10 @@ Meteor.methods({
         [field]: 1
       }
     });
-
+    if (!shop.currencies[currency].rate) {
+      Meteor.call("shop/getCurrencyRate", currency);
+    }
+    console.log(shop.currencies[currency])
     return typeof shop.currencies[currency].rate === "number" &&
       shop.currencies[currency].rate;
   },

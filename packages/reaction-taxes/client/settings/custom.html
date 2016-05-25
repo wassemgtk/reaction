@@ -11,6 +11,10 @@
       useExternal=true
     }}
   </div>
+
+
+  {{instance}}
+  {{#if instance.state.get 'editing'}}
   <div>
     {{#autoForm
       collection="ReactionCore.Collections.Taxes"
@@ -42,4 +46,7 @@
       {{> shopSettingsSubmitButton}}
     {{/autoForm}}
   </div>
+  {{else}}
+    <div class="nav-group">...</div>
+  {{/if}}
 </template>

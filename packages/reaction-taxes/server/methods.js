@@ -16,5 +16,10 @@ Meteor.methods({
     }
     // else update and return
     return ReactionCore.Collections.Taxes.update(docId, modifier);
+  },
+  "taxes/calculate": function (cartId) {
+    check(cartId, String);
+    const cart = ReactionCore.Collections.Cart.findOne(cartId);
+    const shop = ReactionCore.Collections.Shops.findOne(ReactionCore.getShopId());
   }
 });

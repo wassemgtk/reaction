@@ -5,10 +5,16 @@ import {
 import {
   MeteorGriddle
 } from "meteor/utilities:meteor-griddle";
+import { ReactiveDict } from "meteor/reactive-dict";
 
 Template.customTaxRates.onCreated(function () {
   this.autorun(() => {
     this.subscribe("Taxes");
+  });
+
+  this.state = new ReactiveDict();
+  this.state.setDefault({
+    editing: false
   });
 });
 
@@ -77,8 +83,13 @@ Template.customTaxRates.helpers({
     return MeteorGriddle;
   },
   editRow(options) {
-    // console.log("here in edit row", options);
-    return;
+    return (options, ) => {
+      const instance = Template.instance();
+      console.log(instance.state.get("editing"));
+      instance.state.set("editing", options.props.data);
+      Session.set("editingTaxCode", options.props.data);
+      console.log("here in edit row", options.props.data);
+    };
   },
   noDataMessage() {
     return i18next.t("shopSettings.noCustomTaxRatesFound");

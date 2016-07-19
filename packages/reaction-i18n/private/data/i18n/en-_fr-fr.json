@@ -702,10 +702,10 @@
       "error": {
         "nameRequired": "Le nom est obligatoire.",
         "isRequired": "{{field}} est requis.",
-        "mustBeNumber": "{{field}} doit être un nombre.",
         "variantFieldIsRequired": "{{number}} La {{field}} variante est nécessaire."
       }
     }
   }
 }]
-rdFormat": "Format ancien de mot de passe"
+finir un nom d'utilisateur ou e-mail",
+          "oldPasswordFormat": "Format ancien de mot de passe"
